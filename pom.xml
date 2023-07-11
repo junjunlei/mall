@@ -27,6 +27,7 @@
         <spring.cloud.version>Greenwich.SR3</spring.cloud.version>
         <elasticsearch.version>7.4.2</elasticsearch.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <javaee-api.version>8.0</javaee-api.version>
     </properties>
     <!--  子模块继承父模块之后，提供作用：锁定版本 + 子模块不用再写 version  -->
     <dependencyManagement>
@@ -78,6 +79,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${javaee-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

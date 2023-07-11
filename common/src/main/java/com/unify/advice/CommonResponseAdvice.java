@@ -1,7 +1,7 @@
 package com.unify.advice;
 
 import com.alibaba.fastjson.JSON;
-import com.unify.Result;
+import com.unify.common.Result;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;

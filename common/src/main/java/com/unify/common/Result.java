@@ -1,4 +1,4 @@
-package com.unify;
+package com.unify.common;
 
 import java.io.Serializable;
 
@@ -10,10 +10,6 @@ import java.io.Serializable;
  **/
 public class Result<T> implements Serializable {
 
-
-    private static final String SUCCESS_CODE = "200";
-
-    private static final String SUCCESS_MESSAGE = "操作成功";
 
     /**
      * 是否成功
@@ -94,8 +90,8 @@ public class Result<T> implements Serializable {
 
     public static Result success() {
         Result result = new Result();
-        result.setCode(SUCCESS_CODE);
-        result.setMessage(SUCCESS_MESSAGE);
+        result.setCode(CommonResponseCode.SUCCESS.getCode());
+        result.setMessage(CommonResponseCode.SUCCESS.getMessage());
         return result;
     }
 
@@ -103,8 +99,8 @@ public class Result<T> implements Serializable {
         Result result = new Result();
         result.setSuccess(true);
         result.setData(data);
-        result.setCode(SUCCESS_CODE);
-        result.setMessage(SUCCESS_MESSAGE);
+        result.setCode(CommonResponseCode.SUCCESS.getCode());
+        result.setMessage(CommonResponseCode.BUSINESS_ERROR.getMessage());
         return result;
     }
 
@@ -113,6 +109,14 @@ public class Result<T> implements Serializable {
         result.setSuccess(false);
         result.setCode(code);
         result.setMessage(message);
+        return result;
+    }
+
+    public static Result failed(CommonResponseCode responseCode) {
+        Result result = new Result();
+        result.setSuccess(false);
+        result.setCode(responseCode.getCode());
+        result.setMessage(result.getMessage());
         return result;
     }
 }
